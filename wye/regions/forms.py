@@ -27,7 +27,7 @@ class RegionalLeadForm(forms.ModelForm):
     def save(self, force_insert=False, force_update=False, commit=True):
         m = super(RegionalLeadForm, self).save(commit=False)
         for u in self.cleaned_data['leads']:
-            u.profile.usertype.add(UserType.objects.get(slug='lead'))
+            u.profile.usertype.save(UserType.objects.get(slug='lead'))
         return m
 
 
