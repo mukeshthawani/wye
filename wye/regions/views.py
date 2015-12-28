@@ -80,7 +80,7 @@ class RegionalLeadCreateView(views.StaffuserRequiredMixin, generic.CreateView):
         if form.is_valid():
             form.modified_by = request.user
             form.created_by = request.user
-            form.instance.save()
+            form.save()
 
             return HttpResponseRedirect(self.success_url)
         else:
